@@ -29,15 +29,37 @@ const EmailSignup = () => {
 
     setIsSubmitting(true);
 
-    // Simulate API call
-    setTimeout(() => {
-      toast({
-        title: "Thank you!",
-        description: "You'll be the first to know when we launch.",
+    try {
+      const response = await fetch("https://formspree.io/f/xblzneap", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: validation.data.email }),
       });
-      setEmail("");
+
+      if (response.ok) {
+        toast({
+          title: "Thank you!",
+          description: "You'll be the first to know when we launch.",
+        });
+        setEmail("");
+      } else {
+        toast({
+          title: "Error",
+          description: "Something went wrong. Please try again.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
