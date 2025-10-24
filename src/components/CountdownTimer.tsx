@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { differenceInDays, differenceInHours, differenceInMinutes, differenceInSeconds } from "date-fns";
 
 interface TimeLeft {
   days: number;
@@ -8,12 +9,12 @@ interface TimeLeft {
 }
 
 const CountdownTimer = () => {
-  // Set launch date to 3 months from now
-  const launchDate = new Date();
-  launchDate.setMonth(launchDate.getMonth() + 3);
+  // Launch date: January 24, 2026 at 12:00 PM EAT (UTC+3)
+  const launchDate = new Date("2026-01-24T12:00:00+03:00");
 
   const calculateTimeLeft = (): TimeLeft => {
-    const difference = +launchDate - +new Date();
+    const now = new Date();
+    const difference = launchDate.getTime() - now.getTime();
     
     if (difference > 0) {
       return {
