@@ -1,10 +1,10 @@
 import CountdownTimer from "@/components/CountdownTimer";
 import EmailSignup from "@/components/EmailSignup";
-import luxoraLogo from "@/assets/luxora-logo.jpg";
+import luxoraLogo from "@/assets/luxora-logo.png";
 
 const Index = () => {
   return (
-    <main className="min-h-screen bg-background flex flex-col">
+    <main className="min-h-screen flex flex-col" style={{ backgroundColor: '#fdfdfd' }}>
       {/* Header with Logo */}
       <header className="w-full pt-8 md:pt-12 px-4">
         <div className="max-w-6xl mx-auto flex justify-center">
