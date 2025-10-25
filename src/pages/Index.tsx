@@ -1,6 +1,6 @@
 import CountdownTimer from "@/components/CountdownTimer";
 import EmailSignup from "@/components/EmailSignup";
-import luxoraLogo from "@/assets/luxora-logo.png";
+import luxoraLogo from "@/assets/luxora-logo.jpg";
 
 const Index = () => {
   return (
